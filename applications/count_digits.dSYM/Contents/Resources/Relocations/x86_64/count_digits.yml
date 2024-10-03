@@ -1,0 +1,9 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/ishan/Programming/code/c/applications/count_digits'
+relocations:
+  - { offset: 0x19, size: 0x8, addend: 0x0, symName: _count_digits, symObjAddr: 0x0, symBinAddr: 0x100000DEB, symSize: 0x43 }
+  - { offset: 0x8B, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xC6, symBinAddr: 0x100000EB1, symSize: 0x59 }
+  - { offset: 0xB9, size: 0x8, addend: 0x0, symName: _reverse, symObjAddr: 0x43, symBinAddr: 0x100000E2E, symSize: 0x83 }
+  - { offset: 0xF6, size: 0x8, addend: 0x0, symName: _count_digits, symObjAddr: 0x0, symBinAddr: 0x100000DEB, symSize: 0x43 }
+...

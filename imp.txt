@@ -1,0 +1,7 @@
+C madhe preparation 	Done
+C Pointers all			Done
+Functions 				Done
+Bit wise operation 		Done
+Link list				Done
+Reverse list 			Done
+Trees 
