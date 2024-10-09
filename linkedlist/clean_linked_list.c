@@ -10,7 +10,7 @@ Node *create_node(int x){
 	Node *new_node = (Node *) malloc (sizeof(Node));
     if(new_node == NULL){
         printf("Memory allocation failed!\n");
-        exit;
+        exit(1);
     }
 	new_node->data = x;
 	new_node->link = NULL;
