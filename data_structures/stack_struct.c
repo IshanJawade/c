@@ -19,10 +19,10 @@ int main(){
 	stack.top = -1;
 	pop(&stack.top);
 
-	push(23, &stack.top, stack.arr);
-	push(45, &stack.top, stack.arr);
-	push(65, &stack.top, stack.arr);
-	push(21, &stack.top, stack.arr);
+	push(23, &stack.top, &stack.arr[0]);
+	push(45, &stack.top, &stack.arr[0]);
+	push(65, &stack.top, &stack.arr[0]);		// same 
+	push(21, &stack.top, stack.arr);			// same
 	push(84, &stack.top, stack.arr);
 	push(90, &stack.top, stack.arr);
 	
