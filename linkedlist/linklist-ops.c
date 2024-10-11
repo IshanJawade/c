@@ -53,6 +53,8 @@ void memory_cleaner(Node *head){
 	printf("%d Nodes cleaned from the memory! \n", counter);
 }
 
+// add nodes
+
 Node *add_head(int x, Node *head){
     Node *new_node = create_node(x);
     new_node->link = head;
@@ -74,6 +76,32 @@ void add_tail(int x, Node *head){
 
 }
 
+Node *add_in(int x, int p, Node* head){
+	Node *new_node = create_node(x); 
+    Node *current = head;
+	Node *prev_curr = NULL;
+	int counter=1;
+	if(p == 1){
+		return add_head(x, head); // returning new head from the add_head()
+	}
+    while(current != NULL){
+        if(counter == p){
+            prev_curr->link = new_node;
+			new_node->link = current;
+			break; 
+        }
+		prev_curr = current;
+        current = current->link;
+		counter++;
+		// if user wanted to add at the end
+		if(current == NULL){		
+            add_tail(x, head);
+        }
+    }
+	return head;
+}
+
+
 int main() {
 	// system("clear");
 	Node *head = create_linkedlist(5);
@@ -92,6 +120,13 @@ int main() {
     add_tail(6, head);
     printf("New tail added \n");
     print_list(head);
+
+	getchar();
+
+	// added new node in between
+	head = add_in(100, 1, head);
+	printf("New node added in between \n");
+	print_list(head);
 
     getchar();
     printf("Press any to free the memory ...");
