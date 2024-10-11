@@ -81,6 +81,7 @@ Node *add_in(int x, int p, Node* head){
     Node *current = head;
 	Node *prev_curr = NULL;
 	int counter=1;
+	// if user wants to add node at the head (position = 1)
 	if(p == 1){
 		return add_head(x, head); // returning new head from the add_head()
 	}
@@ -93,7 +94,7 @@ Node *add_in(int x, int p, Node* head){
 		prev_curr = current;
         current = current->link;
 		counter++;
-		// if user wanted to add at the end
+		// if user wants to add node at the end
 		if(current == NULL){		
             add_tail(x, head);
         }
