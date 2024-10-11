@@ -1,7 +1,0 @@
----
-triple:          'x86_64-apple-darwin'
-binary-path:     '/Users/ishan/Programming/code/c/applications/palindrome'
-relocations:
-  - { offset: 0x19, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100000EE2, symSize: 0xA6 }
-  - { offset: 0x86, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100000EE2, symSize: 0xA6 }
-...
