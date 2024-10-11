@@ -1,0 +1,16 @@
+# Ignore all executable files without extensions
+* 
+
+# Ignore all .o and .out files (common compiled files)
+*.o
+*.out
+
+# Ignore other common temporary files
+*.tmp
+*.log
+*.DS_Store
+
+# Ignore folders ending with .dSYM
+*.dSYM/
+
+.vscode/
