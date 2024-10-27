@@ -1,22 +1,29 @@
 # include <stdio.h>
-# include <stdlib.h>
-# include <stdbool.h>
 
-void print_binary(unsigned int n) {
-    for (int i = 7; i >= 0; i--) {  // For 8-bit representation
-        printf("%d", (n >> i) & 1);
-    }
+void bubble_sort(int array[]){
+	for(int a=0; a<array_len; a++){
+		for(int b=0; b<array_len-a-1; b++){
+			if(array[b] > array[b+1]){
+				int temp = array[b+1];
+				array[b+1] = array[b];
+				array[b] = temp;
+			}
+		}
+	}
 }
 
-int main() {
-    unsigned int REG = 0b00001010;  // Initial value of the register (10 in decimal)
-    int BIT = 2;                    // We want to set the 2nd bit (counting from 0)
-
-    REG |= (1 << BIT);  // Set the 2nd bit to 1
-
-    printf("After setting bit %d, REG = 0b", BIT);
-    print_binary(REG);  // Print binary representation
-    printf("\n");
-
-    return 0;
+int main(){
+	int arr[] = {64, 34, 25, 12, 22, 11, 90};
+    int arr_len = sizeof(arr)/sizeof(int);
+    printf("Given Array: \n");
+    for(int a=0; a< arr_len; a++){
+		printf("%d, ", arr[a]);
+	}
+	bubble_sort(array);
+    printf("Sorted Array: \n")
+	for(int a=0; a< arr_len; a++){
+		printf("%d, ", arr[a]);
+	}
+	printf("\n");
+	return 0;
 }
