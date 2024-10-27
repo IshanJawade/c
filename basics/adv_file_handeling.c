@@ -33,7 +33,7 @@ int main(){
 	printf("%d elements has been read successfully\n", r_count);
 	fclose(file);
 
-	printf("\nId: %d \nName: %s \nBalance: %f \n", user.id, user.name, user.balance);
+	printf("\nId: %d \nName: %s \nBalance: %.2f \n", user.id, user.name, user.balance);
 	
 	return 0;
 }

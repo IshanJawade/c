@@ -5,8 +5,8 @@
 
 // function declarations
 
-void login();
-void signup();
+int login();
+int signup();
 void deposite(int);
 void withdraw(int);
 void payment();
@@ -18,7 +18,7 @@ typedef struct {
 	int date, month, year;
 	char ac_type[10];
 	long int balance;  
-} user;
+} Account ;
 
 // main function 
 int main(){
@@ -32,16 +32,16 @@ int main(){
 	int ch;
 	while(ch != 0){
 		printf("\tEnter your choice:\n");
-		printf("1) Create new bank account\n2) Deposite money in the account\n");
+		printf("1) Create new bank account\n2) login\n");
 		printf("3) Withdraw money from the account\n4) Do payment to other account\n");
 		printf("0) Quit \n# ");
 		scanf("%d", &ch);
 		switch(ch){
 			case 1:
-				printf("Call create_account \n");
+				signup();
 				break;
 			case 2:
-				printf("Call deposite \n");
+				login();
 				break;
 			case 3:
 				printf("Call withdraw \n");
@@ -59,7 +59,7 @@ int main(){
 		getchar(); // to consume new line charactor by scanf
 		printf("Press a key to continue ...");
 		getchar();
-		system("clear");
+		// system("clear");
 	}
 
 	return 0;
@@ -67,11 +67,64 @@ int main(){
 
 // function definitions 
 
-void signup(){
-	user u1;
-	u1.username = "ishanjawade";
-	u1.password = "ishan@1234";
-	u1.date = 03; u1.month = 07; u1.year = 200;
-	u1.ac_type = "SAVINGS";
+int signup(){
+	Account u1;
+	strcpy(u1.username, "ishanjawade");
+	strcpy(u1.password, "ishan@1234");
+	u1.date = 03; u1.month = 07; u1.year = 2000;
+	strcpy(u1.ac_type, "SAVINGS");
+	
+	FILE *file = fopen("accounts.dat", "wb");
+	if(file == NULL){
+		printf("Error opening file!\n");
+		return 1;
+	}
+
+	int w_count = 0;
+	w_count = fwrite(&u1, sizeof(Account), 1, file);
+	fclose(file);
+	if(!w_count){
+		printf("Something went wrong, account has not been created! \n");
+		return 1;
+	}
+
+	printf("New account has been created successfully \n");
+	return 0;
+}
+
+int login(){	// success = 0 , failure = 1 .
+	char username[32];
+	char password[32];
+
+	printf("username: ");
+	scanf("%s", username);
+
+	FILE *file = fopen("accounts.dat", "rb");
+
+	Account rec;
+	int found = 0;
+
+	while(fread(&rec, sizeof(Account), 1, file) == 1){
+		if(strcmp(rec.username, username)== 0){
+			found = 1;
+			
+			printf("password: ");
+			scanf("%s", password);
+
+			if(strcmp(rec.password, password)== 0){
+				printf("Authenticated successfully \n");
+				fclose(file);
+				return 0;
+			}else {
+				printf("Password is not matching! \n");
+				fclose(file);
+				return 1;
+			}
+		}
+	}
+	if (!found){
+		printf("User not found : Invalid user! \n");
+	}
+	return 1;
 }
 
