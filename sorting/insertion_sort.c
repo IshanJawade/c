@@ -9,20 +9,22 @@ int main(){
 	}
 	printf("\n");
 
-	for(int a=1; a < len ; a++){
-		int prev = a-1;
-		while(prev != 0){
-			if(arr[prev] > arr[a]){
-				int temp = arr[prev];
-				arr[prev] = arr[a];
-				arr[a] = temp; 
-			}
-			prev --;
-		}
+	for(int a = 1; a < len; a++) {
+    int prev = a - 1;
+    int temp = arr[a];
+
+    // Shift elements to the right until finding the correct position for temp
+    while(prev >= 0 && arr[prev] > temp) {
+        arr[prev + 1] = arr[prev];
+        prev--;
+    }
+    arr[prev + 1] = temp;  // Place temp in its correct position
 	}
+
 
 	printf("Sorted array: ");
 	for(int a=0; a < len; a++){
+		printf("%d ", arr[a]);
 	}
 	printf("\n");
 
