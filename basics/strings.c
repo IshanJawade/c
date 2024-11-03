@@ -3,6 +3,12 @@
 
 int main(){
 	
+	// String is a character array in C 
+	char name0[] = {'i','s','h','a','n','\0'}; 
+	// last '\0' is a null character that tells compiler to stop reading for the string  
+	printf("%s \n", name0);
+
+
 	char string[]="Hello World";
 
 	printf("%s\n", string);
