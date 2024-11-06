@@ -18,14 +18,14 @@ Node *create_node(int x){
 }
 
 Node* create_linkedlist(int n){
-	int size = 1;
+	int size = n;
 	Node *prev = NULL;
 	Node *current = NULL;
-	while(size != n){
+	while(size != 0){
 		current = create_node(size);
 		current->link = prev;
 		prev = current;
-		size++;
+		size--;
 	}
 	printf("%d Nodes created!\n", n);
 	return current;

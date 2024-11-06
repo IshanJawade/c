@@ -6,6 +6,7 @@ typedef struct {
 	int value;
 } Map;
 
+
 int main(){
 	Map pair[2];
 	strcpy(pair[0].key,"one");
