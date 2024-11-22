@@ -1,3 +1,5 @@
+// implemented on BIT level only posotive integers
+
 # include <stdio.h>
 # include <stdbool.h>
 # include <stdlib.h>

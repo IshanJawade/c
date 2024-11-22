@@ -1,20 +1,35 @@
 # include <stdio.h>
 # include <string.h>
+# include <stdlib.h>
 
 typedef struct {
 	char key[32];
 	int value;
 } Map;
 
-int main(){
-	Map pair[2];
-	strcpy(pair[0].key,"one");
-	pair[0].value = 1;
-	strcpy(pair[1].key, "two");
-	pair[1].value = 2;
+Map *generate_map(char key[], int value){
+	Map *new_map = (Map *) malloc (sizeof(Map));
+	strcpy(new_map->key,key);
+	new_map->value = value;
+	return new_map;
+}
 
-	for(int i=0; i<2; i++){
-		printf("key: %s value: %d \n", pair[i].key, pair[i].value);
+
+int main(){
+	Map *HashMap[5]; 
+	HashMap[0] = generate_map("One", 1); 
+	HashMap[1] = generate_map("Two", 2); 
+	HashMap[2] = generate_map("Three", 3); 
+	HashMap[3] = generate_map("Four", 4); 
+	HashMap[4] = generate_map("Five", 5); 
+
+	for(int i=0; i<5; i++){
+		printf("key: %s value: %d \n", HashMap[i]->key, HashMap[i]->value);
+	}
+
+	// free memory here
+	for(int i=0; i<5; i++){
+		free(HashMap[i]);
 	}
 
 }
