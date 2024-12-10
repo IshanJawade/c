@@ -2,34 +2,35 @@
 # include <string.h>
 # include <stdlib.h>
 
-typedef struct {
-	char key[32];
-	int value;
-} Map;
+// Shortcuts to change 1,2 and 3 flag to ON which are A B and C respectively
+#define flag_A |=(1 << 0)  // 1
+#define flag_B |=(1 << 1)  // 2
+#define flag_C |=(1 << 2)  // 4 
+#define flag_D |=(1 << 3)  // 4 
 
-Map *generate_map(char key[], int value){
-	Map *new_map = (Map *) malloc (sizeof(Map));
-	strcpy(new_map->key,key);
-	new_map->value = value;
-	return new_map;
+#define flag_0A &= ~(1 << 0)
+#define flag_0B &= ~(1 << 1)
+#define flag_0C &= ~(1 << 2)
+#define flag_0D &= ~(1 << 3)
+
+void print_binary(unsigned int n){
+	for(int a=7; a>=0; a--){
+		printf("%d",(n >> a) & 1);
+	}
+	printf("\n");
 }
 
 
-int main(){
-	Map *HashMap[5]; 
-	HashMap[0] = generate_map("One", 1); 
-	HashMap[1] = generate_map("Two", 2); 
-	HashMap[2] = generate_map("Three", 3); 
-	HashMap[3] = generate_map("Four", 4); 
-	HashMap[4] = generate_map("Five", 5); 
+int main() {
 
-	for(int i=0; i<5; i++){
-		printf("key: %s value: %d \n", HashMap[i]->key, HashMap[i]->value);
-	}
+    unsigned int flags = 0b0000; // Initialize flags variable correctly
+    flags flag_A; 
+    print_binary(flags);
+    flags flag_B; 
+    print_binary(flags);
+    flags flag_0A;
+    print_binary(flags);
 
-	// free memory here
-	for(int i=0; i<5; i++){
-		free(HashMap[i]);
-	}
-
+    printf("%u\n", flags); // Print the flags as an unsigned integer
+    return 0;
 }

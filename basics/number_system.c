@@ -6,8 +6,8 @@ int main(){
 	int dec = 10;			// no suffix for decimal 
 	int oct = 012;			// 0 for octal
 
-	printf("%d \n", bin);
-	printf("%d \n", hex);
-	printf("%d \n", dec);
-	printf("%d \n", oct);
+	printf("(bin) 0b00001010: %d \n", bin);
+	printf("(hex) 0xA       : %d \n", hex);
+	printf("(dec) 10        : %d \n", dec);
+	printf("(oct) 012       : %d \n", oct);
 }

@@ -3,8 +3,9 @@
 int main(){
 	void *ptr; // void pointers can be assign to any datatypes 
 	int num = 45;
-	ptr = &num;
+	char c = 'b';
+	ptr = &c;
 	// first cast ptr into specific datatype pointer then dereference it
-	printf("%d \n", *(int*)ptr );
+	printf("%c \n", *(char *)ptr );
 	return 0;
 }

@@ -14,27 +14,27 @@ Node* create_node(int x){
 	new_node->right = NULL;
 	return new_node;
 }
-
+// left -> root -> right
 void in_order_traversal(Node* root){
 	Node* current = root;
 	if(current == NULL){
 		return;
 	}
 	in_order_traversal(current->left);
-	printf("%d", current->data);
+	printf("%d ", current->data);
 	in_order_traversal(current->right);
 }
-
+// root -> left -> right 
 void pre_order_traversal(Node* root){
 	Node* current = root;
 	if(current == NULL){
 		return;
 	}
-	printf("%d", current->data);
+	printf("%d ", current->data);
 	in_order_traversal(current->left);
 	in_order_traversal(current->right);
 }
-
+// left -> right -> root 
 void post_order_traversal(Node* root){
 	Node* current = root;
 	if(current == NULL){
@@ -42,7 +42,7 @@ void post_order_traversal(Node* root){
 	}
 	in_order_traversal(current->left);
 	in_order_traversal(current->right);
-	printf("%d", current->data);
+	printf("%d ", current->data);
 }
 
 

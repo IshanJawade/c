@@ -12,6 +12,7 @@ int count_set_bits(int n) {
 }
 
 int main(){
-	int n = 111111;
-	printf("%d \n", count_set_bits(n));
+	int n = 0b111111;
+	printf("Number:%d \n",n);
+	printf("Number of set bits: %d \n", count_set_bits(n));
 }
