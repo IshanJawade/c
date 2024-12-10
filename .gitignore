@@ -1,0 +1,12 @@
+# Ignore 
+*
+
+# Allow .c files
+!*.c
+!.gitignore
+
+# Allow directories (optional)
+!*/
+
+# ignore .dSYM directories
+*.dSYM/
