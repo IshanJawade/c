@@ -1,6 +1,7 @@
 # include <stdio.h>
 
 int divison(int *n1, int *n2){
+	
 	// edge cases
 	if (*n2 == 0){		// first filter
 		printf("Undefiend \n");
@@ -20,7 +21,7 @@ int divison(int *n1, int *n2){
 	// variable declaration
 	int num1 = *n1;
 	int num2 = *n2;
-	float quotient = 0;
+	int quotient = 0;
 	int remainder = 0;
 
 	// to calculate remainder
@@ -37,8 +38,8 @@ int divison(int *n1, int *n2){
 }
 
 int main(){
-	int n1 = 0; 	// dividend
-	int n2 = 0;		// divisor
+	int n1 = 9; 	// dividend
+	int n2 = 5;		// divisor
 	int output = divison(&n1, &n2);
 	if(output == 0){
 		printf(" Quotient: %d Remainder: %d \n", n1, n2);
