@@ -2,16 +2,16 @@
 
 int divison(int *n1, int *n2){
 	// edge cases
-	if (*n2 == 0){
+	if (*n2 == 0){		// first filter
 		printf("Undefiend \n");
 		return 1;
 	}
-	if (*n1 == 0){
+	if (*n1 == 0){		// second filter 
 		*n1 = 0;
 		*n2 = 0;
 		return 0;
 	}
-	if( *n1 == *n2){
+	if( *n1 == *n2){	// third filter
 		*n1 = 1;
 		*n2 = 0;
 		return 0; 
@@ -37,7 +37,7 @@ int divison(int *n1, int *n2){
 }
 
 int main(){
-	int n1 = 9; 	// dividend
+	int n1 = 0; 	// dividend
 	int n2 = 0;		// divisor
 	int output = divison(&n1, &n2);
 	if(output == 0){
