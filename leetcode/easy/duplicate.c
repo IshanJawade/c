@@ -1,4 +1,4 @@
-// implemented on BIT level only posotive integers
+// implemented on BIT level only positive integers
 
 # include <stdio.h>
 # include <stdbool.h>

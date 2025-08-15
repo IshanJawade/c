@@ -16,14 +16,14 @@ bool is_valid_Palindrome(char s[]){
             counter++;
         }
     }
-    final_string[counter] = '\0'; 
+    final_string[counter] = '\0'; // adds \0 at the end of the char array to end the string
 
 	// to reverse a string 
 	char rev_string[counter +1];
 	for (int i = 0; i < counter; i++) {
         rev_string[i] = final_string[counter - 1 - i]; 
     }
-    rev_string[counter] = '\0';
+    rev_string[counter] = '\0';	// to end the string
 
 	// check if it's a palindrome or not
 	return strcmp(final_string, rev_string) == 0;

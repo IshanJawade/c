@@ -22,5 +22,5 @@ long reverse(int x){
 int main(){
 	const int number = 123456789;
 	printf("Digits in the numnber: %d\n",count_digits(number));
-	printf("Reversed number: %d\n", reverse(number));
+	printf("Reversed number: %ld\n", reverse(number));
 }
