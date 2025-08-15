@@ -1,5 +1,6 @@
 # include <stdio.h>
 
+// globally declared 8bit flag
 unsigned int flag = 0b00001010;
 
 #define flag_A (1 << 0) // 1st bit
