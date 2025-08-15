@@ -2,7 +2,7 @@
 
 int main(){
 	/*
-			0	1	2	<= 3 rows
+			0	1	2		< 3 rows
 		_______________
 	0	|	0	1	2
 	1	|	3	4	5		this array has 4 rows and 3 columns

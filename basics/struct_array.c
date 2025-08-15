@@ -21,7 +21,7 @@ int main(){
 	
 	// iterating through the array
 	for(int a=0; a < length; a++){
-		printf("Name: %- 12s GPA: %.1f \n", students[a].name, students[a].gpa);
+		printf("Name: %-12s GPA: %.1f \n", students[a].name, students[a].gpa);
 	}
 
 	return 0;

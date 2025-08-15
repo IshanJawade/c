@@ -1,7 +1,7 @@
 # include <stdio.h>
 # include <stdbool.h> // need this Hfile to use bool (boolean) datatype
 
-void main(){
+int main(){
 	int age = 24;
 
 	float cgpa = 8.8; // decimal point 4 bytes (6-7 digits) 32 bits of precision
@@ -12,7 +12,7 @@ void main(){
 	int num; // declaration
 	num = 34; // initialization
 
-	// C doesnrt have String datatype because String is an object
+	// C does't have String datatype because String is an object
 
 	printf("Your name is %s \n", name);  			// %d is a format spacifier for char array
 	printf("You are %d years old \n", age);			// %d is a format spacifier for integers

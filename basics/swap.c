@@ -1,5 +1,7 @@
 # include <stdio.h>
 
+// these fucntions are pass by value so they wont actually affect on
+// the original variables 
 void temp_swap(int a, int b){
 	int temp = a;
 	a = b;
@@ -22,6 +24,11 @@ void xor_bitwise_swap(int a, int b){
 	printf("a= %d b= %d \n", a,b);
 }
 
+/* this fucntion takes pass by refference to the actual variables
+this function affects the actual variable
+In this fastion you can use any method used in above functions 
+Currently, this fuction uses temp method to swap values 
+*/
 void swap(int *a, int *b){
 	int temp = *a;
 	*a = *b;
