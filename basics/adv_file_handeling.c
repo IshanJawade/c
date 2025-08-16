@@ -11,7 +11,7 @@ int main(){
 	Account user = {101, "Ishan", 13500.45};
 
 	// writing to the file
-	FILE *file = fopen("account.dat", "wb");
+	FILE *file = fopen("account.dat", "wb");	// "wb" means write binary
 	if(file == NULL){
 		printf("Error opening file!\n");
 		return 1;
@@ -22,9 +22,9 @@ int main(){
 	fclose(file);
 
 	// reading from a file
-	Account read_user;
+	Account read_user;		// making a variable to store data
 
-	file = fopen("account.dat", "rb");
+	file = fopen("account.dat", "rb");		// "rb" means read binary
 	if (file == NULL){
 		printf("Error opening file! \n");
 	}

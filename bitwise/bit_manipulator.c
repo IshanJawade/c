@@ -11,7 +11,7 @@
 
 // funtion to print number in binary 
 void print_binary(int n){
-    printf("%d ", n);
+    printf("%-2d ", n);
 	for(int a=7; a>=0; a--){
 		printf("%d",(n >> a) & 1);
 	}
