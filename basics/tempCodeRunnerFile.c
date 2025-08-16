@@ -1,1 +1,1 @@
-new_node
+str_num

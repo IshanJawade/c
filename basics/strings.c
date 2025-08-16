@@ -38,9 +38,21 @@ int main(){
 	// Copy Strings
 	char str3[20] = "Hello World!";
 	char str4[20];
-	// Copy str3 to str4
-	strcpy(str4, str3);
+	
+	strcpy(str4, str3); 	// Copy str3 to str4
 	printf("%s\n", str4);
+
+	// Convert Int to String
+	int num = 123456;
+	char str_num[8];
+
+	sprintf(str_num, "%d",  num); // int to string
+	printf("%s\n", str_num);
+
+	//string to int
+	int sample;
+	sscanf(str_num, "%d", &sample);	//strinf to int
+	printf("%d\n",sample);
 
 	return 0;
 }

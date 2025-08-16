@@ -2,8 +2,7 @@
 # include <ctype.h>
 
 int main(){
-	int myNumbers[] = {10, 25, 50, 75, 100};
-	int length = sizeof(myNumbers) / sizeof(myNumbers[0]);
-
-	printf("%d", length);  // Prints 5	
+	char name[5] = {'i','s','h','a','n'};
+	char name1[] = "ishan";
+	printf("name: %d \nname1: %d", sizeof(name)/sizeof(char), sizeof(name1 )/sizeof(char));
 }
