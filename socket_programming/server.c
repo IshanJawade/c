@@ -81,9 +81,9 @@ int main(int argc, char *argv[]){
 		if(n<0){
 			error("Error on writting !\n");
 		}
-		// when revieces "Bye" from clien loop breaks
-		int i = strcmp("Bye", buffer);
-		if(i==0) {
+		// when server sends "Bye" loop breaks
+		int i = strncmp("Bye", buffer, 3);
+		if(i == 0) {
 			break;
 		}
 	}

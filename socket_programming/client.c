@@ -65,8 +65,8 @@ int main(int argc, char *argv[]){
 		}
 		printf("Server: %s", buffer);
 
-		int i = strcmp("Bye", buffer);
-		if(i==0) {
+		int i = strncmp("Bye", buffer, 3);
+		if(i == 0) {
 			break;
 		}
 	}
