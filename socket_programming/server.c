@@ -53,23 +53,29 @@ int main(int argc, char *argv[]){
 
 	newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
 	if(newsockfd < 0){
-		error("Error on accept !");
+		error("Error on accepting connection !");
 	}
 
+	// continue loop to receive and send messages
 	while (1){
 		bzero(buffer, 255);
+
+		// reading the buffer from client
 		n = read(newsockfd, buffer, 255);
 		if(n<0){
 			error("Error on reading !");
 		}
 		printf("Client: %s\n", buffer);
-		bzero(buffer, 255);
-		fgets(buffer, 255, stdin);
 
+		bzero(buffer, 255);
+		
+		// writting the buffer to client
+		fgets(buffer, 255, stdin);
 		n = write(newsockfd, buffer, strlen(buffer));
 		if(n<0){
 			error("Error on writting !\n");
 		}
+		// when revieces "Bye" from clien loop breaks
 		int i = strcmp("Bye", buffer);
 		if(i==0) {
 			break;
