@@ -1,3 +1,10 @@
+/*
+Server Code
+cli args $ <filename> <portno>
+args[0]	filename
+args[1] portno
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -22,7 +29,7 @@ int main(int argc, char *argv[]){
 	}
 
 	int sockfd, newsockfd, portno, n;
-	char buffer[255];
+	char buffer[256];
 
 	struct sockaddr_in serv_addr, cli_addr; 	// contains internet address
 	socklen_t clilen;		// 32 bit datatype in in.h file
@@ -45,7 +52,6 @@ int main(int argc, char *argv[]){
 	//				 type-casting the memory at 
 	if(bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0){
 		error("Binding failed !");
-		// exit(1);
 	}
 
 	listen(sockfd, 5);
@@ -58,19 +64,19 @@ int main(int argc, char *argv[]){
 
 	// continue loop to receive and send messages
 	while (1){
-		bzero(buffer, 255);
+		bzero(buffer, 256);
 
 		// reading the buffer from client
-		n = read(newsockfd, buffer, 255);
+		n = read(newsockfd, buffer, 256);
 		if(n<0){
 			error("Error on reading !");
 		}
 		printf("Client: %s\n", buffer);
 
-		bzero(buffer, 255);
+		bzero(buffer, 256);
 		
 		// writting the buffer to client
-		fgets(buffer, 255, stdin);
+		fgets(buffer, 256, stdin);
 		n = write(newsockfd, buffer, strlen(buffer));
 		if(n<0){
 			error("Error on writting !\n");
