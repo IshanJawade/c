@@ -5,16 +5,20 @@ args[0]	filename
 args[1] portno
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
+#include <stdio.h>      // printf, fprintf, perror
+#include <stdlib.h>     // exit, atoi
+#include <string.h>     // strlen, (but note: bzero isn’t here on Linux)
+#include <unistd.h>     // read, write, close
+#include <sys/types.h>  // data types used by syscalls
+#include <sys/socket.h> // socket(), bind(), listen(), accept()
+#include <netinet/in.h> // sockaddr_in, htons(), INADDR_ANY
 
 // error fucntion to catch error in msg and terminate the program
-void error(const char *msg){
+void error(const char *msg){	// nothing but passing the array
+	/*
+	perror() is a internal syscall error code translator.
+	it puts <your message> : <syscall failure> on the console
+	*/
 	perror(msg);
 	exit(1);
 }
@@ -32,7 +36,17 @@ int main(int argc, char *argv[]){
 	char buffer[256];
 
 	struct sockaddr_in serv_addr, cli_addr; 	// contains internet address
-	socklen_t clilen;		// 32 bit datatype in in.h file
+	/*
+	from netinet/in.h file
+	struct sockaddr_in {
+		sa_family_t    sin_family;   // address family (AF_INET for IPv4)
+		in_port_t      sin_port;     // port number (in network byte order)
+		struct in_addr sin_addr;     // IP address (in network byte order)
+		unsigned char  sin_zero[8];  // padding, unused
+	};
+	*/
+	// typedef unsigned int socklen_t; in sys/socket.h file
+	socklen_t clilen;		
 
 	// socket Fn()	 IPv4	,	TCP		, TCP
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -41,20 +55,36 @@ int main(int argc, char *argv[]){
 	if(sockfd < 0){
 		error("Error opening Socket !\n");
 	}
-	// clears everything in serv_addr memory location
+	/* 
+		puts zero in every field of the structure
+		Modern implementation: 
+			memset(&serv_addr, 0, sizeof(serv_addr));
+	*/ 
 	bzero((char *) &serv_addr, sizeof(serv_addr));
 
 	portno = atoi(argv[1]); // from commandline argument
 
+	// assigning values to the struct above
 	serv_addr.sin_family = AF_INET;
-	serv_addr.sin_addr.s_addr = INADDR_ANY;
-	serv_addr.sin_port = htons(portno);
-	//				 type-casting the memory at 
+	serv_addr.sin_addr.s_addr = INADDR_ANY; //“listen on all available interfaces.”
+	serv_addr.sin_port = htons(portno);		// HostToNetworkShort() 16 bit address conversion
+	
+	/* 
+		typecasting becasue sockaddr{} and sockaddr_in are different structures
+		sockaddr_in is purely for IPv4
+
+		struct sockaddr {
+			__uint8_t       sa_len;         // total length 
+			sa_family_t     sa_family;      // [XSI] address family 
+			char            sa_data[14];    // [XSI] addr value 
+		};
+	*/
 	if(bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0){
 		error("Binding failed !");
 	}
 
-	listen(sockfd, 5);
+	
+	listen(sockfd, 5); 
 	clilen = sizeof(cli_addr);
 
 	newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
