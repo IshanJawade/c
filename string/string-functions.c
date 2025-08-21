@@ -3,15 +3,16 @@
 # include <ctype.h>
 
 int main(){
-	char string1[] = "Content From String1";
-	char string2[] = "Content From String2";
+	char string1[] = "TheQuickBrownFox";
+	char string2[] = "CiscoSwitchesAreBest";
+	int n = 5;
 
-	// strlwr(string1);				// converts to lower case
+	// strlwr(string1);					// converts to lower case
 	// strupr(string1);					// converts to upper case
-	strcat(string1, string2); 		// concatinates two strings and stored in string 1
-	// strcpy(string1, string2);		// copies string 2 into string 1
-	// strncpy(string1, string2, n);	// copies nth character of string2 to string1
+	// strcat(string1, string2); 		// concatinates two strings and stored in string 1
+	strcpy(string1, string2);		// copies string 2 into string 1
+	//strncpy(string1, string2, 3);		// copies till nth character of string2 to starting of string1
 
-	printf("%s", string1);
+	printf("%s\n", string1);
 	return 0;
 }		

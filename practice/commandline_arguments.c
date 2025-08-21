@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
 	// atoi() fucntion to convert ASCII to int
 	int a = atoi(argv[1]);
 	int b = atoi(argv[2]);
-	int c = a*b;
+	int c = a+b;
 
 	printf("%d\n",c);
 	return 0;
