@@ -4,27 +4,9 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
-// typedef struct student{
-// 	int id;
-// 	char firstName[32];
-// 	char lastName[32];
-// 	char *subjects[20];
-// 	bool status;
-// }
-
 int main(){
-    char *subjects[] = {"Mathematics", "History", "Science", "Language", "Civics", "Geography"};
-    int sub_len = sizeof(subjects)/sizeof(subjects[0]);
-
-    char arr[] = "Computer" ;
-
-    subjects[2] = arr; 
-
-    for (int i = 0; i < sub_len; i++)
-    {
-        printf("%s\n", subjects[i]);
-    }
-    
+    char str[] = "Saraswati Complex, Flat No. 15, A Wing, Near Saneguruji Hospital, Malwadi Road, Hadapsar, Pune - 411028.";
+    int str_len = sizeof(str)/sizeof(char);
+    printf("%d\n", str_len - 1);
     return 0;
-
 }
