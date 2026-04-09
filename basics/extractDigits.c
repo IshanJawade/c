@@ -1,9 +1,6 @@
-# include <stdio.h>
-# include <pthread.h>
-# include <string.h>
-# include <stdlib.h>
-# include <stdbool.h>
-# include <ctype.h>
+#include <stdio.h>
+#include <ctype.h>     // for isdigit()
+#include <stdlib.h>    // for atoi()
 
 int main(){
     char str[] = "ishan37200";

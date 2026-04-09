@@ -1,1 +1,1 @@
-str_num
+e
