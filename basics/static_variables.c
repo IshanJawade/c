@@ -1,10 +1,6 @@
 # include <stdio.h>
-# include <pthread.h>
-# include <string.h>
-# include <stdlib.h>
-# include <stdbool.h>
-# include <ctype.h>
 
+// function prototype
 void func1();
 
 int main(){
