@@ -29,6 +29,6 @@ int main(){
 	
 
 	printf("Name: %s Number: %d Country: %s \n", students[1].full_name, students[1].contact_numnber, students[1].country );
-	printf("Name: %s Number: %d Country: %s \n", students[1].full_name, students[2].contact_numnber, students[2].country );
+	printf("Name: %s Number: %d Country: %s \n", students[2].full_name, students[2].contact_numnber, students[2].country );
 	return 0;
 }

@@ -8,6 +8,9 @@ int main(){
 	  syntax: (void *) malloc (unsigned integer);
 	  if memory is not available malloc will return a NULL pointer
 	*/
+	if(ptr == NULL){
+		printf("Memory allocation failed!");
+	}
 
 	for(int a=0; a<size; a++){
 		printf("Enter the integer: ");

@@ -14,15 +14,20 @@ void arr_alter(int (*p)[10]){
 
 int main(){
 	int arr[10] = {0,1,2,3,4,5,6,7,8,9};
+
 	int (*p) [10] = &arr;
+
 	for(int a=0; a<10; a++){
 		printf("%d ", arr[a]);
 	}
+
 	printf("\n");
 	arr_alter(p);
+
 	for(int a=0; a<10; a++){
 		printf("%d ", arr[a]);
 	}
+	
 	printf("\n");
 	return 0;
 }
