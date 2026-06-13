@@ -6,7 +6,7 @@ static int number;
 
 int main(){
     number = 12;
-
+yy
     printf("number:%d \n", number);
     
     external_function();
